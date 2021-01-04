@@ -10,6 +10,7 @@ namespace AddressBookSystem_Linq_CSharp
             AddrssBookModel model = new AddrssBookModel();
             AddressBookDataTable dataTable = new AddressBookDataTable();
             dataTable.CreateTable(model);
+            dataTable.Display();
         }
     }
 }
