@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookSystem_Linq_CSharp
@@ -8,7 +9,7 @@ namespace AddressBookSystem_Linq_CSharp
     class AddressBookDataTable
     {
         public readonly DataTable dataTable = new DataTable();
-        public DataTable CreateTable(AddrssBookModel model)
+        public DataTable CreateTable(AddressBookModel model)
         {
             var taleColumn1 = new DataColumn("First_Name");
             dataTable.Columns.Add(taleColumn1);
@@ -34,6 +35,28 @@ namespace AddressBookSystem_Linq_CSharp
             dataTable.Rows.Add("Vishal", "Karad", "AoneStreet","Banglore", "Karanataka", "569874", "8963254170","vish@gmail.com");
             dataTable.Rows.Add("Ganesh", "Jadhav", "firsStreet","Chennai", "Tamil", "526341", "8974563210","gan@gmail.com");
             return dataTable;
+        }
+
+        public void AddContact(AddressBookModel model)
+        {
+            dataTable.Rows.Add(model.First_Name, model.Last_Name, model.Address, model.City,
+                model.State, model.Zip, model.Phone_Number , model.Email);
+            Console.WriteLine("Contact Added Succesfully...");
+        }
+
+        public void EditContact(AddressBookModel model)
+        {
+            var recordData = dataTable.AsEnumerable().Where(data => data.Field<string>("First_Name") == model.First_Name).First();
+            if (recordData != null)
+            {
+                recordData.SetField("Last_Name", model.Last_Name);
+                recordData.SetField("Address", model.Address);
+                recordData.SetField("City", model.City);
+                recordData.SetField("State", model.State);
+                recordData.SetField("Zip", model.Zip);
+                recordData.SetField("Phone_Number", model.Phone_Number);
+                recordData.SetField("Email", model.Email);
+            }
         }
         public void Display()
         {
