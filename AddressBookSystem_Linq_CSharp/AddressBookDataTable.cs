@@ -69,6 +69,38 @@ namespace AddressBookSystem_Linq_CSharp
             }
         }
 
+        public void RetrievePersonByUsingState(AddressBookModel model)
+        {
+            var selectdData = from dataTable in dataTable.AsEnumerable().Where((dataTable => dataTable.Field<string>("State") == model.State)) select dataTable;
+            foreach (var table in selectdData.AsEnumerable())
+            {
+                Console.WriteLine("\nFirstName: " + table.Field<string>("First_Name"));
+                Console.WriteLine("LastName: " + table.Field<string>("Last_Name"));
+                Console.WriteLine("Address: " + table.Field<string>("Address"));
+                Console.WriteLine("City: " + table.Field<string>("City"));
+                Console.WriteLine("State: " + table.Field<string>("State"));
+                Console.WriteLine("ZipCode: " + table.Field<string>("Zip"));
+                Console.WriteLine("PhoneNumber: " + table.Field<string>("Phone_Number"));
+                Console.WriteLine("E-mail: " + table.Field<string>("Email"));
+            }
+        }
+
+        public void RetrievePersonByUsingCity(AddressBookModel model)
+        {
+            var selectdData = from dataTable in dataTable.AsEnumerable().Where(dataTable => dataTable.Field<string>("City") == model.City) select dataTable;
+            foreach (var table in selectdData.AsEnumerable())
+            {
+                Console.WriteLine("\nFirstName: " + table.Field<string>("First_Name"));
+                Console.WriteLine("LastName: " + table.Field<string>("Last_Name"));
+                Console.WriteLine("Address: " + table.Field<string>("Address"));
+                Console.WriteLine("City: " + table.Field<string>("City"));
+                Console.WriteLine("State: " + table.Field<string>("State"));
+                Console.WriteLine("ZipCode: " + table.Field<string>("Zip"));
+                Console.WriteLine("PhoneNumber: " + table.Field<string>("Phone_Number"));
+                Console.WriteLine("E-mail: " + table.Field<string>("Email"));
+            }
+        }
+
         public void Display()
         {
             foreach (var table in dataTable.AsEnumerable())
