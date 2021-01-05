@@ -100,7 +100,7 @@ namespace AddressBookSystem_Linq_CSharp
                 Console.WriteLine("E-mail: " + table.Field<string>("Email"));
             }
         }
-
+    
         public void Display()
         {
             foreach (var table in dataTable.AsEnumerable())
@@ -113,6 +113,22 @@ namespace AddressBookSystem_Linq_CSharp
                 Console.WriteLine("ZipCode: " + table.Field<string>("Zip"));
                 Console.WriteLine("PhoneNumber: " + table.Field<string>("Phone_Number"));
                 Console.WriteLine("E-mail: " + table.Field<string>("Email"));
+            }
+        }
+
+        public void CountByCityAndState()
+        {
+            var countByCityAndState = from row in dataTable.AsEnumerable()
+                                      group row by new { City = row.Field<string>("City"), State = row.Field<string>("State") } into groups
+                                      select new
+                                      {
+                                          City = groups.Key.City,
+                                          State = groups.Key.State,
+                                          Count = groups.Count()
+                                      };
+            foreach (var row in countByCityAndState)
+            {
+                Console.WriteLine(row.City + "  " + row.State + "--->" + row.Count);
             }
         }
     }
