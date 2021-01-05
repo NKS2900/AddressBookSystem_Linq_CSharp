@@ -39,6 +39,7 @@ namespace AddressBookSystem_Linq_CSharp
             dataTable.Rows.Add("Vishal", "Karad", "AoneStreet","Banglore", "Karanataka", "569874", "8963254170","vish@gmail.com","address003","office");
             dataTable.Rows.Add("Ganesh", "Jadhav", "firsStreet","Chennai", "Tamil", "526341", "8974563210","gan@gmail.com","address003", "friend");
             dataTable.Rows.Add("Mahesha", "Jadhav", "golai", "Latur", "Maha", "526341", "8974563210", "gan@gmail.com", "address003", "friend");
+            dataTable.Rows.Add("Mahesha", "Jadhav", "golai", "Latur", "Maha", "526341", "8974563210", "gan@gmail.com", "address003", "family");
             return dataTable;
         }
 
