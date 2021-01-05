@@ -173,7 +173,7 @@ namespace AddressBookSystem_Linq_CSharp
                 });
             foreach (var contactlist in countData)
             {
-                Console.WriteLine("AddressBook_Type =" + contactlist.BookType + " --> " + "AddressBookCount = " + contactlist.BookTypeCount);
+                Console.WriteLine("AddressBook Type =" + contactlist.BookType + " --> " + "AddressBook_Count = " + contactlist.BookTypeCount);
             }
         }
     }

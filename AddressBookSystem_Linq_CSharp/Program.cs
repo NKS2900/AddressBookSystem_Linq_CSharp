@@ -92,7 +92,7 @@ namespace AddressBookSystem_Linq_CSharp
                             Environment.Exit(0);
                             break;
                         default:
-                            Console.WriteLine("Invalid option....");
+                            Console.WriteLine("Invalid option...");
                             break;
                     }
                 }
