@@ -13,11 +13,11 @@ namespace AddressBookSystem_Linq_CSharp
             
             while (true)
             {
-                Console.WriteLine("\nEnter Choice  \n1. Add Contact \n2. Display \n3. Edit Contact  \n4. DeletContact \n5. ContactFrom_City \n6. ContactsFrom_State \n7. CountByCityOrState \n8. Sort_Contacts\n9. Exit ");
-                int choise = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("\nEnter Choice  \n1. Add Contact \n2. Display \n3. Edit Contact  \n4. DeletContact \n5. ContactFrom_City \n6. ContactsFrom_State \n7. CountByCityOrState \n8. Sort_Contacts\n9. CountBy_AddressBook_Type \n10. Exit ");
+                int choice = Convert.ToInt32(Console.ReadLine());
                 try
                 {
-                    switch (choise)
+                    switch (choice)
                     {
                         case 1:
                             Console.Write("Enter the first name: ");
@@ -86,6 +86,9 @@ namespace AddressBookSystem_Linq_CSharp
                             adddataTable.SortContactAlphabeticallyForGivenCity(model);
                             break;
                         case 9:
+                            adddataTable.GetCountByAddressBookType();
+                            break;
+                        case 10:
                             Environment.Exit(0);
                             break;
                         default:
